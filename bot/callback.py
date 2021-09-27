@@ -6,10 +6,10 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQ
 from config import Veez
 
 
-@Client.on_callback_query(filters.regex("cbguide"))
+@Client.on_callback_query(filters.regex("jvguide"))
 async def cbguide(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""❓ HOW TO USE THIS BOT:
+        f"""❓ *HOW TO USE:*
 
 1.) first, add me to your group.
 2.) then promote me as admin and give all permissions except anonymous admin.
@@ -19,16 +19,15 @@ async def cbguide(_, query: CallbackQuery):
 6.) type /vstop to end the video streaming.
 
 📝 **note: stream & stop command can only be executed by group admin only!**
+""",
+ #       reply_markup=InlineKeyboardMarkup(
+ #           [[
+ #               InlineKeyboardButton(
+ #                   "🏡 Go Back", callback_data="cbstart")
+ #           ]]
+ #       ))
 
-⚡ __Maintained by Veez Project Team__""",
-        reply_markup=InlineKeyboardMarkup(
-            [[
-                InlineKeyboardButton(
-                    "🏡 Go Back", callback_data="cbstart")
-            ]]
-        ))
-
-
+'''
 @Client.on_callback_query(filters.regex("cbstart"))
 async def cbstart(_, query: CallbackQuery):
     await query.edit_message_text(
@@ -57,8 +56,9 @@ async def cbstart(_, query: CallbackQuery):
                     "📚 All Command List", callback_data="cblist")
             ]]
         ))
-
-
+'''
+        
+'''
 @Client.on_callback_query(filters.regex("cbinfo"))
 async def cbinfo(_, query: CallbackQuery):
     await query.edit_message_text(
@@ -87,8 +87,9 @@ __This bot licensed under GNU-GPL 3.0 License__""",
         disable_web_page_preview=True
     )
 
-
-@Client.on_callback_query(filters.regex("cblist"))
+'''
+        
+@Client.on_callback_query(filters.regex("jvlist"))
 async def cblist(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""📚 All Command List:
@@ -115,23 +116,21 @@ async def cblist(_, query: CallbackQuery):
 » /alive - check bot alive status
 » /ping - check bot ping status
 » /uptime - check bot uptime status
-» /sysinfo - check bot system information
 
 💡 SUDO ONLY:
 
 » /rmd - remove all downloaded files
 » /rmw - remove all downloaded raw files
 » /leaveall - order assistant leave from all group
+""",
+#        reply_markup=InlineKeyboardMarkup(
+#            [[
+#                InlineKeyboardButton(
+#                    "🏡 Go Back", callback_data="cbstart")
+#            ]]
+#        ))
 
-⚡ __Maintained by Veez Project Team__""",
-        reply_markup=InlineKeyboardMarkup(
-            [[
-                InlineKeyboardButton(
-                    "🏡 Go Back", callback_data="cbstart")
-            ]]
-        ))
 
-
-@Client.on_callback_query(filters.regex("cls"))
+@Client.on_callback_query(filters.regex("jvls"))
 async def close(_, query: CallbackQuery):
     await query.message.delete()
