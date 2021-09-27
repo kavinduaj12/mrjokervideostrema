@@ -4,7 +4,7 @@ version: '3.4'
 
 services:
   videostream:
-    image: videostream
+    image: mrjokervideostrema
     build:
       context: .
       dockerfile: ./Dockerfile
